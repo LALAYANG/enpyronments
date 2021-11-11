@@ -32,6 +32,8 @@ def test_masked(test_key, test_setting, is_sensitive, actual_value):
 
 
 def test_getitem(test_setting, test_key, actual_value):
+    with pytest.raises(KeyError):
+        test_setting[test_key]
     """ Ensure Sensitive objects return their underlying value """
     assert test_setting[test_key] == actual_value
 
